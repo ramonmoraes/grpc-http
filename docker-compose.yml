@@ -1,0 +1,6 @@
+version: "3"
+services:
+  http-extractor:
+    image: grpc-http
+    environment:
+      - EXTRACTOR_TYPE:http
