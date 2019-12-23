@@ -10,6 +10,7 @@ import (
 
 func Serve() {
 	http.HandleFunc("/", getNameHandler)
+	fmt.Println("Listening at :8080")
 	http.ListenAndServe(":8080", nil)
 }
 
