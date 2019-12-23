@@ -38,7 +38,7 @@ func httpRequest(json []byte) string {
 func benchmarkFunc(b []byte, function func(b []byte) string) []string {
 	i := 0
 	results := []string{}
-	for i < 100 {
+	for i < 10000 {
 		res := function(b)
 		results = append(results, res)
 		i++
