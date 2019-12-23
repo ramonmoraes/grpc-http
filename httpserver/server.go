@@ -9,7 +9,7 @@ import (
 )
 
 func Serve() {
-	http.HandleFunc("/", jsonUnpackHandler)
+	http.HandleFunc("/", getNameHandler)
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -17,7 +17,7 @@ type withName struct {
 	Name string
 }
 
-func jsonUnpackHandler(w http.ResponseWriter, r *http.Request) {
+func getNameHandler(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 
 	if err != nil {
