@@ -6,9 +6,12 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/ramonmoraes/grpc-http/httpserver"
 )
+
+var EXTRACTOR_TYPE = os.Getenv("EXTRACTOR_TYPE")
 
 func preLoadJSON() []byte {
 	jsonPath := "./sample.json"
@@ -45,8 +48,14 @@ func benchmarkFunc(b []byte, function func(b []byte) string) []string {
 
 func main() {
 	fmt.Println("----- Start -----")
-	jsonB := preLoadJSON()
-	go httpserver.Serve()
-	benchmarkFunc(jsonB, httpRequest)
+	if EXTRACTOR_TYPE == "http" {
+		httpserver.Serve()
+	}
+
+	if EXTRACTOR_TYPE == "" {
+		fmt.Println(("Empty extractor type"))
+	}
+	// jsonB := preLoadJSON()
+	// benchmarkFunc(jsonB, httpRequest)
 	fmt.Println("----- End   -----")
 }
