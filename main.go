@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/ramonmoraes/grpc-http/grpcserver"
 	"github.com/ramonmoraes/grpc-http/httpserver"
 )
 
