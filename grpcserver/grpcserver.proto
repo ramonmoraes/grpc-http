@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message WithName {
+    string name = 1;
+}
+
+service GetNameService {
+    rpc GetName (WithName) returns (WithName){};
+}
+
