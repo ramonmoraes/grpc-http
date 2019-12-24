@@ -52,6 +52,9 @@ func main() {
 		httpserver.Serve()
 	}
 
+	if EXTRACTOR_TYPE == "grpc" {
+		grpcserver.Serve()
+	}
 	if EXTRACTOR_TYPE == "" {
 		fmt.Println(("Empty extractor type"))
 	}
