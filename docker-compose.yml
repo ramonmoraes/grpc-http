@@ -4,3 +4,7 @@ services:
     image: grpc-http
     environment:
       - EXTRACTOR_TYPE:http
+  grcp-extractor:
+    image: grpc-http
+    environment:
+      - EXTRACTOR_TYPE:grpc

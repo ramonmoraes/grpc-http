@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/ramonmoraes/grpc-http/grpcserver"
 	"github.com/ramonmoraes/grpc-http/httpserver"
 )
 
@@ -52,6 +53,9 @@ func main() {
 		httpserver.Serve()
 	}
 
+	if EXTRACTOR_TYPE == "grpc" {
+		grpcserver.Serve()
+	}
 	if EXTRACTOR_TYPE == "" {
 		fmt.Println(("Empty extractor type"))
 	}
